@@ -1,6 +1,5 @@
 plugins {
     id 'fabric-loom' version '0.12-SNAPSHOT' apply false
-    id "com.matthewprenger.cursegradle" version "$cursegradle_version" apply false
     id 'com.matyrobbrt.mc.registrationutils' version "$regVersion"
 }
 
@@ -65,31 +64,6 @@ subprojects {
         enabled = false
     }
 
-    def isForge = project.name == 'Forge'
-    def key =  System.getenv('CURSEFORGEKEY')
-    println key
-    if (project.name != 'Common') {
-        apply plugin: 'com.matthewprenger.cursegradle'
-        if (!isForge) apply plugin: 'fabric-loom'
-        def changelogFile = rootProject.file('CHANGELOG.md').text
-
-        curseforge {
-            apiKey = key
-            project {
-                id = project.projectId
-                releaseType = project.releaseType
-                changelogType = 'markdown'
-                changelog = changelogFile
-                addGameVersion project.minecraft_version
-                addGameVersion project.name
-                mainArtifact(isForge ? jar : remapJar)
-            }
-            options {
-                debug = false
-                forgeGradleIntegration = isForge
-            }
-        }
-    }
 }
 
 registrationUtils {
