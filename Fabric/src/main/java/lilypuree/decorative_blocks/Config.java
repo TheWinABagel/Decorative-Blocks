@@ -1,11 +1,9 @@
 package lilypuree.decorative_blocks;
 
+import net.minecraftforge.api.fml.event.config.ModConfigEvent;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.minecraftforge.fml.config.ModConfig;
 
-@Mod.EventBusSubscriber(modid = Constants.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config {
     public static final String CATEGORY_GENERAL = "general";
 
@@ -31,14 +29,17 @@ public class Config {
 
     }
 
-    @SubscribeEvent
-    public static void onLoad(ModConfigEvent.Loading event){
+    public static void register() {
+        ModConfigEvent.LOADING.register(Config::onLoad);
+        ModConfigEvent.RELOADING.register(Config::onReload);
+    }
+
+    public static void onLoad(ModConfig event){
        CommonConfig.BONFIRE_ACTIVATOR = BONFIRE_ACTIVATOR.get();
        CommonConfig.THATCH_ENABLED = THATCH_ENABLED.get();
     }
 
-    @SubscribeEvent
-    public static void onReload(ModConfigEvent.Loading event){
+    public static void onReload(ModConfig event){
         CommonConfig.BONFIRE_ACTIVATOR = BONFIRE_ACTIVATOR.get();
         CommonConfig.THATCH_ENABLED = THATCH_ENABLED.get();
     }

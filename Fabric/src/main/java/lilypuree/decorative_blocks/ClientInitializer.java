@@ -1,5 +1,6 @@
 package lilypuree.decorative_blocks;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import lilypuree.decorative_blocks.blocks.SeatBlock;
 import lilypuree.decorative_blocks.blocks.SupportBlock;
 import lilypuree.decorative_blocks.client.ClientSetup;
@@ -20,11 +21,13 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.Registry;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.Block;
+import org.lwjgl.glfw.GLFW;
 
 
 public class ClientInitializer implements ClientModInitializer {
@@ -36,7 +39,8 @@ public class ClientInitializer implements ClientModInitializer {
         ClientSetup.initItemPropertyFunctions();
         registerThatchlike(Registration.referenceHolder);
     }
-
+    //Register keybind, but it doesn't do anything so it's disabled for now
+    //public static final KeyMapping SWITCH_STATE = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.decorative_blocks.switch_item_state", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "key.categories.inventory"));
     public static void registerThatchlike(ThatchFluid.FluidReferenceHolder referenceHolder) {
         BlockRenderLayerMap.INSTANCE.putBlock(referenceHolder.getLiquidBlock(), RenderType.solid());
         ClientSpriteRegistryCallback.event(InventoryMenu.BLOCK_ATLAS).register((atlasTexture, registry) -> {

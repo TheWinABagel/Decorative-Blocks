@@ -24,7 +24,7 @@ import java.awt.event.KeyEvent;
 
 public class ClientSetup {
 
-    public static final KeyMapping switchItemState = new KeyMapping("key.decorative_blocks.switch_item_state", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "key.categories.inventory");
+
     public static void initRenderLayers() {
         Services.PLATFORM.setRenderLayer(DBBlocks.BAR_PANEL.get(), RenderType.cutoutMipped());
         Services.PLATFORM.setRenderLayer(DBBlocks.LATTICE.get(), RenderType.cutoutMipped());

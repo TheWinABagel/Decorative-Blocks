@@ -20,6 +20,7 @@ public class DecorativeBlocks implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        Config.register();
         DBTags.init();
         Registration.init();
         DBBlocks.init();

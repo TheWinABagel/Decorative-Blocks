@@ -31,6 +31,7 @@ public class DecorativeBlocks {
         });
         modBus.addListener(ClientEventHandler::clientSetup);
         modBus.addListener(ClientEventHandler::onEntityRendererRegistry);
+        modBus.addListener(ClientEventHandler::registerBindings);
 
         modBus.addListener(this::onRegisterEvent);
     }
