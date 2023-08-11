@@ -20,7 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class DBItemModels extends ItemModelProvider {
 
     public DBItemModels(DataGenerator generator, String modid, ExistingFileHelper existingFileHelper) {
-        super(generator, modid, existingFileHelper);
+        super(generator.getPackOutput(), modid, existingFileHelper);
     }
 
     @Override

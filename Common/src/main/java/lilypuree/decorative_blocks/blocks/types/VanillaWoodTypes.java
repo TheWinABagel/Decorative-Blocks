@@ -2,43 +2,17 @@ package lilypuree.decorative_blocks.blocks.types;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 
 public enum VanillaWoodTypes implements IWoodType {
     OAK("oak"), BIRCH("birch") {
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.SAND;
-        }
     }, SPRUCE("spruce") {
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.PODZOL;
-        }
     },
     ACACIA("acacia") {
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.COLOR_ORANGE;
-        }
     }, JUNGLE("jungle") {
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.DIRT;
-        }
     },
     DARK_OAK("dark_oak") {
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.COLOR_BROWN;
-        }
     },
     MANGROVE("mangrove") {
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.COLOR_RED;
-        }
     },
     CRIMSON("crimson") {
         @Override
@@ -46,30 +20,12 @@ public enum VanillaWoodTypes implements IWoodType {
             return false;
         }
 
-        @Override
-        public Material getMaterial() {
-            return Material.NETHER_WOOD;
-        }
-
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.NETHER;
-        }
     }, WARPED("warped") {
         @Override
         public boolean isFlammable() {
             return false;
         }
 
-        @Override
-        public Material getMaterial() {
-            return Material.NETHER_WOOD;
-        }
-
-        @Override
-        public MaterialColor getMaterialColor() {
-            return MaterialColor.COLOR_CYAN;
-        }
     };
 
     private final String name;
@@ -111,123 +67,73 @@ public enum VanillaWoodTypes implements IWoodType {
     }
 
     public Block getLog() {
-        switch (this) {
-            case OAK:
-                return Blocks.OAK_LOG;
-            case SPRUCE:
-                return Blocks.SPRUCE_LOG;
-            case BIRCH:
-                return Blocks.BIRCH_LOG;
-            case JUNGLE:
-                return Blocks.JUNGLE_LOG;
-            case DARK_OAK:
-                return Blocks.DARK_OAK_LOG;
-            case ACACIA:
-                return Blocks.ACACIA_LOG;
-            case MANGROVE:
-                return Blocks.MANGROVE_LOG;
-            case CRIMSON:
-                return Blocks.CRIMSON_STEM;
-            case WARPED:
-                return Blocks.WARPED_STEM;
-        }
-        return Blocks.OAK_LOG;
+        return switch (this) {
+            case OAK -> Blocks.OAK_LOG;
+            case SPRUCE -> Blocks.SPRUCE_LOG;
+            case BIRCH -> Blocks.BIRCH_LOG;
+            case JUNGLE -> Blocks.JUNGLE_LOG;
+            case DARK_OAK -> Blocks.DARK_OAK_LOG;
+            case ACACIA -> Blocks.ACACIA_LOG;
+            case MANGROVE -> Blocks.MANGROVE_LOG;
+            case CRIMSON -> Blocks.CRIMSON_STEM;
+            case WARPED -> Blocks.WARPED_STEM;
+        };
     }
 
     public Block getStrippedLog() {
-        switch (this) {
-            case OAK:
-                return Blocks.STRIPPED_OAK_LOG;
-            case SPRUCE:
-                return Blocks.STRIPPED_SPRUCE_LOG;
-            case BIRCH:
-                return Blocks.STRIPPED_BIRCH_LOG;
-            case JUNGLE:
-                return Blocks.STRIPPED_JUNGLE_LOG;
-            case DARK_OAK:
-                return Blocks.STRIPPED_DARK_OAK_LOG;
-            case ACACIA:
-                return Blocks.STRIPPED_ACACIA_LOG;
-            case MANGROVE:
-                return Blocks.STRIPPED_MANGROVE_LOG;
-            case CRIMSON:
-                return Blocks.STRIPPED_CRIMSON_STEM;
-            case WARPED:
-                return Blocks.STRIPPED_WARPED_STEM;
-        }
-        return Blocks.STRIPPED_OAK_LOG;
+        return switch (this) {
+            case OAK -> Blocks.STRIPPED_OAK_LOG;
+            case SPRUCE -> Blocks.STRIPPED_SPRUCE_LOG;
+            case BIRCH -> Blocks.STRIPPED_BIRCH_LOG;
+            case JUNGLE -> Blocks.STRIPPED_JUNGLE_LOG;
+            case DARK_OAK -> Blocks.STRIPPED_DARK_OAK_LOG;
+            case ACACIA -> Blocks.STRIPPED_ACACIA_LOG;
+            case MANGROVE -> Blocks.STRIPPED_MANGROVE_LOG;
+            case CRIMSON -> Blocks.STRIPPED_CRIMSON_STEM;
+            case WARPED -> Blocks.STRIPPED_WARPED_STEM;
+        };
     }
 
     public Block getSlab() {
-        switch (this) {
-            case OAK:
-                return Blocks.OAK_SLAB;
-            case SPRUCE:
-                return Blocks.SPRUCE_SLAB;
-            case BIRCH:
-                return Blocks.BIRCH_SLAB;
-            case JUNGLE:
-                return Blocks.JUNGLE_SLAB;
-            case DARK_OAK:
-                return Blocks.DARK_OAK_SLAB;
-            case ACACIA:
-                return Blocks.ACACIA_SLAB;
-            case MANGROVE:
-                return Blocks.MANGROVE_SLAB;
-            case CRIMSON:
-                return Blocks.CRIMSON_SLAB;
-            case WARPED:
-                return Blocks.WARPED_SLAB;
-        }
-        return Blocks.OAK_SLAB;
+        return switch (this) {
+            case OAK -> Blocks.OAK_SLAB;
+            case SPRUCE -> Blocks.SPRUCE_SLAB;
+            case BIRCH -> Blocks.BIRCH_SLAB;
+            case JUNGLE -> Blocks.JUNGLE_SLAB;
+            case DARK_OAK -> Blocks.DARK_OAK_SLAB;
+            case ACACIA -> Blocks.ACACIA_SLAB;
+            case MANGROVE -> Blocks.MANGROVE_SLAB;
+            case CRIMSON -> Blocks.CRIMSON_SLAB;
+            case WARPED -> Blocks.WARPED_SLAB;
+        };
     }
 
     public Block getFence() {
-        switch (this) {
-            case OAK:
-                return Blocks.OAK_FENCE;
-            case SPRUCE:
-                return Blocks.SPRUCE_FENCE;
-            case BIRCH:
-                return Blocks.BIRCH_FENCE;
-            case JUNGLE:
-                return Blocks.JUNGLE_FENCE;
-            case DARK_OAK:
-                return Blocks.DARK_OAK_FENCE;
-            case ACACIA:
-                return Blocks.ACACIA_FENCE;
-            case MANGROVE:
-                return Blocks.MANGROVE_FENCE;
-            case CRIMSON:
-                return Blocks.CRIMSON_FENCE;
-            case WARPED:
-                return Blocks.WARPED_FENCE;
-        }
-        return Blocks.OAK_FENCE;
+        return switch (this) {
+            case OAK -> Blocks.OAK_FENCE;
+            case SPRUCE -> Blocks.SPRUCE_FENCE;
+            case BIRCH -> Blocks.BIRCH_FENCE;
+            case JUNGLE -> Blocks.JUNGLE_FENCE;
+            case DARK_OAK -> Blocks.DARK_OAK_FENCE;
+            case ACACIA -> Blocks.ACACIA_FENCE;
+            case MANGROVE -> Blocks.MANGROVE_FENCE;
+            case CRIMSON -> Blocks.CRIMSON_FENCE;
+            case WARPED -> Blocks.WARPED_FENCE;
+        };
     }
 
     public Block getPlanks() {
-        switch (this) {
-            case OAK:
-                return Blocks.OAK_PLANKS;
-            case SPRUCE:
-                return Blocks.SPRUCE_PLANKS;
-            case BIRCH:
-                return Blocks.BIRCH_PLANKS;
-            case JUNGLE:
-                return Blocks.JUNGLE_PLANKS;
-            case DARK_OAK:
-                return Blocks.DARK_OAK_PLANKS;
-            case ACACIA:
-                return Blocks.ACACIA_PLANKS;
-            case MANGROVE:
-                return Blocks.MANGROVE_PLANKS;
-            case CRIMSON:
-                return Blocks.CRIMSON_PLANKS;
-            case WARPED:
-                return Blocks.WARPED_PLANKS;
-        }
-        return Blocks.OAK_PLANKS;
+        return switch (this) {
+            case OAK -> Blocks.OAK_PLANKS;
+            case SPRUCE -> Blocks.SPRUCE_PLANKS;
+            case BIRCH -> Blocks.BIRCH_PLANKS;
+            case JUNGLE -> Blocks.JUNGLE_PLANKS;
+            case DARK_OAK -> Blocks.DARK_OAK_PLANKS;
+            case ACACIA -> Blocks.ACACIA_PLANKS;
+            case MANGROVE -> Blocks.MANGROVE_PLANKS;
+            case CRIMSON -> Blocks.CRIMSON_PLANKS;
+            case WARPED -> Blocks.WARPED_PLANKS;
+        };
     }
 
     @Override

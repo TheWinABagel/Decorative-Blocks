@@ -7,6 +7,7 @@ import lilypuree.decorative_blocks.blocks.types.VanillaWoodTypes;
 import lilypuree.decorative_blocks.blocks.types.WoodDecorativeBlockTypes;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
@@ -18,14 +19,15 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
-
+/*
 public class DBRecipes extends RecipeProvider {
     public DBRecipes(DataGenerator pGenerator) {
-        super(pGenerator);
+        super(pGenerator.getPackOutput());
     }
 
+
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         for (IWoodType wood : VanillaWoodTypes.values()) {
             makeWoodenBlockRecipes(wood, consumer);
         }
@@ -72,7 +74,7 @@ public class DBRecipes extends RecipeProvider {
     }
 
     public static IWoodenBlock getBlock(IWoodType woodType, WoodDecorativeBlockTypes type) {
-        return (IWoodenBlock) Registry.BLOCK.stream().filter(block -> {
+        return (IWoodenBlock) BuiltInRegistries.BLOCK.stream().filter(block -> {
             if (block instanceof IWoodenBlock) {
                 if (((IWoodenBlock) block).getWoodType() == woodType) {
                     switch (type) {
@@ -140,6 +142,8 @@ public class DBRecipes extends RecipeProvider {
                 .save(consumer);
     }
 
+
+
 //    public static void modConditionalRecipe(Consumer<Consumer<FinishedRecipe>> baseRecipeBuilder, String modid, Consumer<FinishedRecipe> consumer) {
 //        ICondition modLoadedCondition = new ModLoadedCondition(modid);
 //        baseRecipeBuilder.accept(iFinishedRecipe -> {
@@ -148,4 +152,4 @@ public class DBRecipes extends RecipeProvider {
 //                    .build(consumer, iFinishedRecipe.getId());
 //        });
 //    }
-}
+}*/

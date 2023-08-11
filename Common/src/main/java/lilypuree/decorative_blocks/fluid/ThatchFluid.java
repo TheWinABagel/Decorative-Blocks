@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -87,11 +88,6 @@ public abstract class ThatchFluid extends FlowingFluid {
     }
 
     @Override
-    protected boolean canConvertToSource() {
-        return false;
-    }
-
-    @Override
     protected void spreadTo(LevelAccessor worldIn, BlockPos pos, BlockState blockStateIn, Direction direction, FluidState fluidStateIn) {
         if (direction == Direction.DOWN) {
             boolean shouldFlowInto = false;
@@ -146,6 +142,11 @@ public abstract class ThatchFluid extends FlowingFluid {
         }
 
         @Override
+        protected boolean canConvertToSource(Level level) {
+            return false;
+        }
+
+        @Override
         public int getAmount(FluidState fluidState) {
             return fluidState.getValue(LEVEL);
         }
@@ -165,6 +166,11 @@ public abstract class ThatchFluid extends FlowingFluid {
         @Override
         protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> builder) {
             super.createFluidStateDefinition(builder);
+        }
+
+        @Override
+        protected boolean canConvertToSource(Level level) {
+            return false;
         }
 
         @Override

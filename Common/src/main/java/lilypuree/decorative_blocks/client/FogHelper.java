@@ -5,9 +5,11 @@ import lilypuree.decorative_blocks.core.DBTags;
 import lilypuree.decorative_blocks.fluid.ThatchFluid;
 import net.minecraft.client.Camera;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.phys.Vec3;
 
 public class FogHelper {
 
@@ -16,7 +18,8 @@ public class FogHelper {
         if (entity.isEyeInFluid(DBTags.Fluids.THATCH)) {
 
             Level world = entity.getCommandSenderWorld();
-            FluidState state = world.getFluidState(new BlockPos(entity.getEyePosition()));
+            Vec3 pos = entity.getEyePosition();
+            FluidState state = world.getFluidState(new BlockPos(new Vec3i((int) pos.x,(int) pos.y, (int) pos.z)));
             if (state.getType() instanceof ThatchFluid thatchFluid) {
                 int color = thatchFluid.getReferenceHolder().color();
                 return decodeColor(color);

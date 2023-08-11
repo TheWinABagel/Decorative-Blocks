@@ -2,22 +2,23 @@ package lilypuree.decorative_blocks.datagen;
 
 import lilypuree.decorative_blocks.Constants;
 import lilypuree.decorative_blocks.core.DBTags;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
-
+/*
 public class DBItemTagsProvider extends ItemTagsProvider {
     public DBItemTagsProvider(DataGenerator generatorIn, BlockTagsProvider blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(generatorIn, blockTagsProvider, Constants.MODID, existingFileHelper);
+        super(generatorIn.getPackOutput(), blockTagsProvider, Constants.MODID, existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider pProvider) {
         copy(DBTags.Blocks.BEAMS, DBTags.Items.BEAMS);
         copy(DBTags.Blocks.PALISADES, DBTags.Items.PALISADES);
         copy(DBTags.Blocks.SEATS, DBTags.Items.SEATS);
@@ -26,4 +27,5 @@ public class DBItemTagsProvider extends ItemTagsProvider {
 
         copy(BlockTags.NON_FLAMMABLE_WOOD, ItemTags.NON_FLAMMABLE_WOOD);
     }
-}
+
+}*/

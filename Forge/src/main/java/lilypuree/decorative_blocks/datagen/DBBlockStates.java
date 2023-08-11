@@ -18,7 +18,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public class DBBlockStates extends BlockStateProvider {
 
     public DBBlockStates(DataGenerator gen, String modid, ExistingFileHelper exFileHelper) {
-        super(gen, modid, exFileHelper);
+        super(gen.getPackOutput(), modid, exFileHelper);
     }
 
 

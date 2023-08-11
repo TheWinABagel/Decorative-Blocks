@@ -178,11 +178,13 @@ public class SeatBlock extends HorizontalDirectionalBlock implements SimpleWater
         if (blockReachDistance == 0) //player has to stand on top of the block
             return playerPos.getY() - pos.getY() <= 1 && playerPos.getX() - pos.getX() == 0 && playerPos.getZ() - pos.getZ() == 0;
 
-        pos = pos.offset(0.5D, 0.5D, 0.5D);
+        //pos = pos.offset(0.5D, 0.5D, 0.5D);
+        pos = pos.offset(1, 1, 1);
 
         AABB range = new AABB(pos.getX() + blockReachDistance, pos.getY() + blockReachDistance, pos.getZ() + blockReachDistance, pos.getX() - blockReachDistance, pos.getY() - blockReachDistance, pos.getZ() - blockReachDistance);
 
-        playerPos = playerPos.offset(0.5D, 0.5D, 0.5D);
+        //playerPos = playerPos.offset(0.5D, 0.5D, 0.5D);
+        playerPos = playerPos.offset(1, 1, 1);
         return range.minX <= playerPos.getX() && range.minY <= playerPos.getY() && range.minZ <= playerPos.getZ() && range.maxX >= playerPos.getX() && range.maxY >= playerPos.getY() && range.maxZ >= playerPos.getZ();
     }
 

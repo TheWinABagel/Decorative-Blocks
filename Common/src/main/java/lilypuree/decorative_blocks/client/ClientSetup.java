@@ -15,9 +15,12 @@ import net.minecraft.client.player.KeyboardInput;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.block.Block;
 import org.lwjgl.glfw.GLFW;
 
 import java.awt.event.KeyEvent;
@@ -38,7 +41,7 @@ public class ClientSetup {
     }
 
     public static void initItemPropertyFunctions() {
-        Registry.BLOCK.forEach(block -> {
+        BuiltInRegistries.BLOCK.forEach(block -> {
             if (block instanceof SupportBlock) {
                 Services.PLATFORM.registerItemFunc(block.asItem(), SupportItem.OVERRIDE_TAG, (stack, level, entity, i) -> {
                     return stack.hasTag() ? stack.getTag().getInt(SupportItem.OVERRIDE_TAG.getPath()) : 0.0f;

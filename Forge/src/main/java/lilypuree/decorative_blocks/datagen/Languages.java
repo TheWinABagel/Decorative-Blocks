@@ -7,7 +7,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 public class Languages extends LanguageProvider {
 
     public Languages(DataGenerator gen, String locale) {
-        super(gen, Constants.MODID, locale);
+        super(gen.getPackOutput(), Constants.MODID, locale);
     }
 
     @Override

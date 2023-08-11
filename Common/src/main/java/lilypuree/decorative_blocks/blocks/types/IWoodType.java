@@ -2,8 +2,6 @@ package lilypuree.decorative_blocks.blocks.types;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 
 public interface IWoodType {
     String toString();
@@ -19,14 +17,14 @@ public interface IWoodType {
     Block getFence();
 
     Block getPlanks();
-
+/*
     default MaterialColor getMaterialColor() {
         return MaterialColor.WOOD;
     }
 
     default Material getMaterial() {
         return Material.WOOD;
-    }
+    }*/
 
     default SoundType getSoundType() {
         return SoundType.WOOD;

@@ -19,7 +19,6 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.renderer.RenderType;
@@ -43,10 +42,10 @@ public class ClientInitializer implements ClientModInitializer {
     //public static final KeyMapping SWITCH_STATE = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.decorative_blocks.switch_item_state", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_G, "key.categories.inventory"));
     public static void registerThatchlike(ThatchFluid.FluidReferenceHolder referenceHolder) {
         BlockRenderLayerMap.INSTANCE.putBlock(referenceHolder.getLiquidBlock(), RenderType.solid());
-        ClientSpriteRegistryCallback.event(InventoryMenu.BLOCK_ATLAS).register((atlasTexture, registry) -> {
+        /*ClientSpriteRegistryCallback.event(InventoryMenu.BLOCK_ATLAS).register((atlasTexture, registry) -> {
             registry.register(referenceHolder.thatchStillTexture());
             registry.register(referenceHolder.thatchFlowingTexture());
-        });
+        });*/
         FluidRenderHandlerRegistry.INSTANCE.register(referenceHolder.getSourceFluid(), referenceHolder.getFlowingFluid(),
                 new SimpleFluidRenderHandler(referenceHolder.thatchStillTexture(), referenceHolder.thatchFlowingTexture()));
     }

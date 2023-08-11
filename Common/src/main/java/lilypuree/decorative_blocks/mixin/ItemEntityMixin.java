@@ -29,13 +29,13 @@ public abstract class ItemEntityMixin extends Entity {
 
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     public void onHurt(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (source == DamageSource.ON_FIRE && ModSetup.isBonfireActivator(this.getItem())) {
-            if (this.level.isClientSide || this.isRemoved()) cir.setReturnValue(false);
+        if (source == damageSources().inFire() && ModSetup.isBonfireActivator(this.getItem())) {
+            if (this.level().isClientSide || this.isRemoved()) cir.setReturnValue(false);
             else {
-                Block block = level.getBlockState(this.blockPosition()).getBlock();
+                Block block = level().getBlockState(this.blockPosition()).getBlock();
                 if (CommonAPI.bonfireMap.containsKey(block)) {
-                    level.setBlockAndUpdate(this.blockPosition(), CommonAPI.bonfireMap.get(block).defaultBlockState());
-                    level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0f, 0.7f);
+                    level().setBlockAndUpdate(this.blockPosition(), CommonAPI.bonfireMap.get(block).defaultBlockState());
+                    level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0f, 0.7f);
                     this.discard();
                     cir.setReturnValue(true);
                 }

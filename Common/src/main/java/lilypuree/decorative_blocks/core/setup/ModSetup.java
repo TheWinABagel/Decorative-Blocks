@@ -10,6 +10,7 @@ import lilypuree.decorative_blocks.items.BlockstateCopyItem;
 import lilypuree.decorative_blocks.mixin.FireBlockInvoker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -32,7 +33,7 @@ public class ModSetup {
         CommonAPI.bonfireMap.put(Blocks.FIRE, DBBlocks.BONFIRE.get());
         CommonAPI.bonfireMap.put(Blocks.SOUL_FIRE, DBBlocks.SOUL_BONFIRE.get());
 
-        Registry.BLOCK.forEach(block -> {
+        BuiltInRegistries.BLOCK.forEach(block -> {
             if (block instanceof PalisadeBlock) {
                 BlockstateCopyItem.addProperties(block, PalisadeBlock.NORTH, PalisadeBlock.EAST, PalisadeBlock.SOUTH, PalisadeBlock.WEST);
             } else if (block instanceof SeatBlock) {
@@ -43,7 +44,7 @@ public class ModSetup {
         });
 
         FireBlockInvoker invoker = ((FireBlockInvoker) ((Object) Blocks.FIRE));
-        Registry.BLOCK.forEach(block -> {
+        BuiltInRegistries.BLOCK.forEach(block -> {
             if (block instanceof IWoodenBlock woodenBlock) {
                 if (woodenBlock.getWoodType().isFlammable()) {
                     invoker.invokeSetFlammable(block, 5, 20);
@@ -120,8 +121,8 @@ public class ModSetup {
     public static boolean checkBonfireActivatorConfig() {
         ResourceLocation bonfireActivatorResourceLocation = ResourceLocation.tryParse(CommonConfig.BONFIRE_ACTIVATOR);
         if (bonfireActivatorResourceLocation != null) {
-            if (Registry.ITEM.containsKey(bonfireActivatorResourceLocation)) {
-                bonfireActivatorItem = Registry.ITEM.get(bonfireActivatorResourceLocation);
+            if (BuiltInRegistries.ITEM.containsKey(bonfireActivatorResourceLocation)) {
+                bonfireActivatorItem = BuiltInRegistries.ITEM.get(bonfireActivatorResourceLocation);
                 return true;
             }
         }

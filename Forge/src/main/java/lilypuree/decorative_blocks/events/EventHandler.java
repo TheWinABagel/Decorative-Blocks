@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -28,7 +29,7 @@ public class EventHandler {
 
     @SubscribeEvent
     public static void onEntityDamage(LivingDamageEvent event) {
-        if (event.getSource() == DamageSource.FALL) {
+        if (event.getSource() == event.getEntity().damageSources().fall()) {
             LivingEntity entity = event.getEntity();
             BlockPos pos = entity.blockPosition();
             Level world = entity.getCommandSenderWorld();

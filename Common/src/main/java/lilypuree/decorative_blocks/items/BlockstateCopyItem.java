@@ -3,7 +3,10 @@ package lilypuree.decorative_blocks.items;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.chat.Component;
@@ -45,7 +48,7 @@ public class BlockstateCopyItem extends Item {
                     return InteractionResult.SUCCESS;
                 }
             } else {
-                BlockState pasteResult = pasteTo(existing, tool);
+                BlockState pasteResult = pasteTo(world, existing, tool);
                 if (pasteResult != null) {
                     world.setBlock(pos, pasteResult, 2 | 16);
                     return InteractionResult.SUCCESS;
@@ -57,10 +60,10 @@ public class BlockstateCopyItem extends Item {
         }
     }
 
-    private BlockState pasteTo(BlockState state, ItemStack tool) {
+    private BlockState pasteTo(Level worldIn, BlockState state, ItemStack tool) {
         CompoundTag tag = tool.getTagElement("blockstate");
         if (tag != null) {
-            BlockState clipboard = NbtUtils.readBlockState(tag);
+            BlockState clipboard = NbtUtils.readBlockState(worldIn.holderLookup(Registries.BLOCK), tag);
             if (state.getBlock() == clipboard.getBlock()) {
                 for (Property property : allowedProperties.get(state.getBlock())) {
                     state = state.setValue(property, clipboard.getValue(property));
@@ -88,7 +91,7 @@ public class BlockstateCopyItem extends Item {
             CompoundTag tag = stack.getTagElement("blockstate");
             String blockstatename = "none";
             if (tag != null) {
-                blockstatename = NbtUtils.readBlockState(tag).getBlock().getDescriptionId();
+                blockstatename = NbtUtils.readBlockState(worldIn.holderLookup(Registries.BLOCK), tag).getBlock().getDescriptionId();
             }
             tooltip.add(Component.translatable("wiki.decorative_blocks.copy1"));
             tooltip.add(Component.translatable("wiki.decorative_blocks.copy2", blockstatename));
@@ -98,7 +101,7 @@ public class BlockstateCopyItem extends Item {
     }
 
     static {
-        Registry.BLOCK.forEach(block -> {
+        BuiltInRegistries.BLOCK.forEach(block -> {
             if (block instanceof FenceBlock || block instanceof IronBarsBlock) {
                 addProperties(block, CrossCollisionBlock.NORTH, CrossCollisionBlock.EAST, CrossCollisionBlock.SOUTH, CrossCollisionBlock.WEST);
             } else if (block instanceof WallBlock) {

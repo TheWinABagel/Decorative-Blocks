@@ -2,6 +2,7 @@ package lilypuree.decorative_blocks.core;
 
 import lilypuree.decorative_blocks.Constants;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -23,19 +24,19 @@ public class DBTags {
         public static TagKey<Block> BONFIRES;
 
         public static void init() {
-            PALISADES_THAT_BURN = TagKey.create(Registry.BLOCK_REGISTRY, id("palisades_that_burn"));
-            SUPPORTS_THAT_BURN = TagKey.create(Registry.BLOCK_REGISTRY, id("supports_that_burn"));
-            SEATS_THAT_BURN = TagKey.create(Registry.BLOCK_REGISTRY, id("seats_that_burn"));
-            BEAMS_THAT_BURN = TagKey.create(Registry.BLOCK_REGISTRY, id("beams_that_burn"));
+            PALISADES_THAT_BURN = TagKey.create(Registries.BLOCK, id("palisades_that_burn"));
+            SUPPORTS_THAT_BURN = TagKey.create(Registries.BLOCK, id("supports_that_burn"));
+            SEATS_THAT_BURN = TagKey.create(Registries.BLOCK, id("seats_that_burn"));
+            BEAMS_THAT_BURN = TagKey.create(Registries.BLOCK, id("beams_that_burn"));
 
-            PALISADES = TagKey.create(Registry.BLOCK_REGISTRY, id("palisades"));
-            SUPPORTS = TagKey.create(Registry.BLOCK_REGISTRY, id("supports"));
-            SEATS = TagKey.create(Registry.BLOCK_REGISTRY, id("seats"));
-            BEAMS = TagKey.create(Registry.BLOCK_REGISTRY, id("beams"));
+            PALISADES = TagKey.create(Registries.BLOCK, id("palisades"));
+            SUPPORTS = TagKey.create(Registries.BLOCK, id("supports"));
+            SEATS = TagKey.create(Registries.BLOCK, id("seats"));
+            BEAMS = TagKey.create(Registries.BLOCK, id("beams"));
 
-            CHANDELIERS = TagKey.create(Registry.BLOCK_REGISTRY, id("chandeliers"));
-            BRAZIERS = TagKey.create(Registry.BLOCK_REGISTRY, id("braziers"));
-            BONFIRES = TagKey.create(Registry.BLOCK_REGISTRY, id("bonfires"));
+            CHANDELIERS = TagKey.create(Registries.BLOCK, id("chandeliers"));
+            BRAZIERS = TagKey.create(Registries.BLOCK, id("braziers"));
+            BONFIRES = TagKey.create(Registries.BLOCK, id("bonfires"));
         }
     }
 
@@ -51,16 +52,16 @@ public class DBTags {
         public static TagKey<Item> CHANDELIERS;
 
         public static void init() {
-            PALISADES_THAT_BURN = TagKey.create(Registry.ITEM_REGISTRY, id("palisades_that_burn"));
-            SUPPORTS_THAT_BURN = TagKey.create(Registry.ITEM_REGISTRY, id("supports_that_burn"));
-            SEATS_THAT_BURN = TagKey.create(Registry.ITEM_REGISTRY, id("seats_that_burn"));
-            BEAMS_THAT_BURN = TagKey.create(Registry.ITEM_REGISTRY, id("beams_that_burn"));
+            PALISADES_THAT_BURN = TagKey.create(Registries.ITEM, id("palisades_that_burn"));
+            SUPPORTS_THAT_BURN = TagKey.create(Registries.ITEM, id("supports_that_burn"));
+            SEATS_THAT_BURN = TagKey.create(Registries.ITEM, id("seats_that_burn"));
+            BEAMS_THAT_BURN = TagKey.create(Registries.ITEM, id("beams_that_burn"));
 
-            PALISADES = TagKey.create(Registry.ITEM_REGISTRY, id("palisades"));
-            SUPPORTS = TagKey.create(Registry.ITEM_REGISTRY, id("supports"));
-            SEATS = TagKey.create(Registry.ITEM_REGISTRY, id("seats"));
-            BEAMS = TagKey.create(Registry.ITEM_REGISTRY, id("beams"));
-            CHANDELIERS = TagKey.create(Registry.ITEM_REGISTRY, id("chandeliers"));
+            PALISADES = TagKey.create(Registries.ITEM, id("palisades"));
+            SUPPORTS = TagKey.create(Registries.ITEM, id("supports"));
+            SEATS = TagKey.create(Registries.ITEM, id("seats"));
+            BEAMS = TagKey.create(Registries.ITEM, id("beams"));
+            CHANDELIERS = TagKey.create(Registries.ITEM, id("chandeliers"));
         }
     }
 
@@ -68,7 +69,7 @@ public class DBTags {
         public static TagKey<Fluid> THATCH;
 
         public static void init() {
-            THATCH = TagKey.create(Registry.FLUID_REGISTRY, id("thatch"));
+            THATCH = TagKey.create(Registries.FLUID, id("thatch"));
         }
     }
 

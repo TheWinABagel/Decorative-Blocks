@@ -7,6 +7,7 @@ import lilypuree.decorative_blocks.platform.Services;
 import lilypuree.decorative_blocks.registration.RegistrationProvider;
 import lilypuree.decorative_blocks.registration.RegistryObject;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -16,8 +17,8 @@ import net.minecraft.world.level.material.Fluid;
 
 public class Registration {
 
-    private static final RegistrationProvider<EntityType<?>> ENTITY_REGISTRY = RegistrationProvider.get(Registry.ENTITY_TYPE, Constants.MODID);
-    private static final RegistrationProvider<Fluid> FLUID_REGISTRY = RegistrationProvider.get(Registry.FLUID, Constants.MODID);
+    private static final RegistrationProvider<EntityType<?>> ENTITY_REGISTRY = RegistrationProvider.get(Registries.ENTITY_TYPE, Constants.MODID);
+    private static final RegistrationProvider<Fluid> FLUID_REGISTRY = RegistrationProvider.get(Registries.FLUID, Constants.MODID);
     private static final ResourceLocation thatchStillTexture = new ResourceLocation(Constants.MODID, "block/thatch_still");
     private static final ResourceLocation thatchFlowingTexture = new ResourceLocation(Constants.MODID, "block/thatch_flowing");
 

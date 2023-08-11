@@ -7,7 +7,6 @@ import lilypuree.decorative_blocks.blocks.types.WoodDecorativeBlockTypes;
 import lilypuree.decorative_blocks.entity.DummyEntityForSitting;
 import lilypuree.decorative_blocks.fluid.ThatchFluid;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
@@ -20,7 +19,6 @@ public class DecorativeBlocks implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Config.register();
         DBTags.init();
         Registration.init();
         DBBlocks.init();
