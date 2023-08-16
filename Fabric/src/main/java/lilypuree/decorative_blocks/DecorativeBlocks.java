@@ -26,5 +26,6 @@ public class DecorativeBlocks implements ModInitializer {
         FuelRegistration.init();
         ModSetup.init();
         Callbacks.initCallbacks();
+        FabricCreativeTab.init();
     }
 }

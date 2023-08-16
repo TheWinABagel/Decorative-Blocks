@@ -4,29 +4,27 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 public enum VanillaWoodTypes implements IWoodType {
-    OAK("oak"), BIRCH("birch") {
-    }, SPRUCE("spruce") {
-    },
-    ACACIA("acacia") {
-    }, JUNGLE("jungle") {
-    },
-    DARK_OAK("dark_oak") {
-    },
-    MANGROVE("mangrove") {
-    },
+    OAK("oak"),
+    BIRCH("birch") {},
+    SPRUCE("spruce") {},
+    ACACIA("acacia") {},
+    JUNGLE("jungle") {},
+    DARK_OAK("dark_oak") {},
+    MANGROVE("mangrove") {},
     CRIMSON("crimson") {
         @Override
         public boolean isFlammable() {
             return false;
         }
-
-    }, WARPED("warped") {
+        },
+    WARPED("warped") {
         @Override
         public boolean isFlammable() {
             return false;
         }
-
-    };
+    },
+    BAMBOO("bamboo"){},
+    CHERRY("cherry"){};
 
     private final String name;
 
@@ -58,6 +56,8 @@ public enum VanillaWoodTypes implements IWoodType {
         else if (name.equalsIgnoreCase("mangrove")) return MANGROVE;
         else if (name.equalsIgnoreCase("crimson")) return CRIMSON;
         else if (name.equalsIgnoreCase("warped")) return WARPED;
+        else if (name.equalsIgnoreCase("bamboo")) return CRIMSON;
+        else if (name.equalsIgnoreCase("cherry")) return WARPED;
         return OAK;
     }
 
@@ -77,6 +77,8 @@ public enum VanillaWoodTypes implements IWoodType {
             case MANGROVE -> Blocks.MANGROVE_LOG;
             case CRIMSON -> Blocks.CRIMSON_STEM;
             case WARPED -> Blocks.WARPED_STEM;
+            case BAMBOO -> Blocks.BAMBOO_BLOCK;
+            case CHERRY -> Blocks.CHERRY_LOG;
         };
     }
 
@@ -91,6 +93,8 @@ public enum VanillaWoodTypes implements IWoodType {
             case MANGROVE -> Blocks.STRIPPED_MANGROVE_LOG;
             case CRIMSON -> Blocks.STRIPPED_CRIMSON_STEM;
             case WARPED -> Blocks.STRIPPED_WARPED_STEM;
+            case BAMBOO -> Blocks.STRIPPED_BAMBOO_BLOCK;
+            case CHERRY -> Blocks.STRIPPED_CHERRY_LOG;
         };
     }
 
@@ -105,6 +109,8 @@ public enum VanillaWoodTypes implements IWoodType {
             case MANGROVE -> Blocks.MANGROVE_SLAB;
             case CRIMSON -> Blocks.CRIMSON_SLAB;
             case WARPED -> Blocks.WARPED_SLAB;
+            case BAMBOO -> Blocks.BAMBOO_SLAB;
+            case CHERRY -> Blocks.CHERRY_SLAB;
         };
     }
 
@@ -119,6 +125,8 @@ public enum VanillaWoodTypes implements IWoodType {
             case MANGROVE -> Blocks.MANGROVE_FENCE;
             case CRIMSON -> Blocks.CRIMSON_FENCE;
             case WARPED -> Blocks.WARPED_FENCE;
+            case BAMBOO -> Blocks.BAMBOO_FENCE;
+            case CHERRY -> Blocks.CHERRY_FENCE;
         };
     }
 
@@ -133,6 +141,8 @@ public enum VanillaWoodTypes implements IWoodType {
             case MANGROVE -> Blocks.MANGROVE_PLANKS;
             case CRIMSON -> Blocks.CRIMSON_PLANKS;
             case WARPED -> Blocks.WARPED_PLANKS;
+            case BAMBOO -> Blocks.BAMBOO_PLANKS;
+            case CHERRY -> Blocks.CHERRY_PLANKS;
         };
     }
 

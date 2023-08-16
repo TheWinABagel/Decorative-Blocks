@@ -34,6 +34,7 @@ public class DecorativeBlocks {
         modBus.addListener((FMLCommonSetupEvent e) -> {
             ModSetup.init();
         });
+        ForgeCreativeTab.CREATIVE_MODE_TABS.register(modBus);
         modBus.addListener(ClientEventHandler::clientSetup);
         modBus.addListener(ClientEventHandler::onEntityRendererRegistry);
         modBus.addListener(ClientEventHandler::registerBindings);
