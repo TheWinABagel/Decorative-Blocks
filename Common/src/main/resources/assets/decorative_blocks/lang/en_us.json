@@ -67,6 +67,7 @@
   "wiki.decorative_blocks.seat": "§3Sneak use on air to switch between states.",
   "wiki.decorative_blocks.copy1": "§3Default usage pastes, sneak use to copy.",
   "wiki.decorative_blocks.copy2": "§3Copied: %s",
+  "wiki.decorative_blocks.shift": "Press §lSHIFT§r for more info",
   "message.decorative_blocks.invalid_bonfire_activator_config": "Bonfire activator config wrong!",
   "key.decorative_blocks.switch_item_state": "Switch item state"
 }

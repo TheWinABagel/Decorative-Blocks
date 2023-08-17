@@ -22,7 +22,7 @@ public class AxeItemMixin extends DiggerItem {
     protected AxeItemMixin(float $$0, float $$1, Tier $$2, TagKey<Block> $$3, Properties $$4) {
         super($$0, $$1, $$2, $$3, $$4);
     }
-
+/*
     @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
     public void useOn(UseOnContext ctx, CallbackInfoReturnable<InteractionResult> cir) {
         Level level = ctx.getLevel();
@@ -32,5 +32,5 @@ public class AxeItemMixin extends DiggerItem {
             SupportBlock.onSupportActivation(state, level, pos, ctx.getPlayer(), ctx.getClickLocation());
             cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
         }
-    }
+    }*/
 }

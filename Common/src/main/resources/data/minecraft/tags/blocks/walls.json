@@ -1,5 +1,6 @@
 {
+  "replace": "false",
   "values": [
-    "#decorative_blocks:palisades_that_burn"
+    "#decorative_blocks:palisades"
   ]
 }

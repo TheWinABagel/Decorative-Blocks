@@ -87,6 +87,7 @@ public class BlockstateCopyItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(Component.translatable("wiki.decorative_blocks.shift"));
         if (Screen.hasShiftDown()) {
             CompoundTag tag = stack.getTagElement("blockstate");
             String blockstatename = "none";

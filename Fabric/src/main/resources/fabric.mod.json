@@ -5,7 +5,7 @@
   "name": "Decorative Blocks",
   "description": "Adds several new decorative blocks",
   "authors": [
-    "Stohun, lilypuree"
+    "Stohun, lilypuree, TheWinABagel (port)"
   ],
   "contact": {
     "sources": "https://github.com/lilypuree/Decorative-Blocks"
@@ -30,7 +30,7 @@
   "depends": {
     "fabricloader": ">=0.14",
     "fabric": "*",
-    "minecraft": ">=1.19",
+    "minecraft": ">=1.20.1",
     "java": ">=17"
   },
   "suggests": {

@@ -37,7 +37,7 @@ public class DecorativeBlocks {
         ForgeCreativeTab.CREATIVE_MODE_TABS.register(modBus);
         modBus.addListener(ClientEventHandler::clientSetup);
         modBus.addListener(ClientEventHandler::onEntityRendererRegistry);
-        modBus.addListener(ClientEventHandler::registerBindings);
+        //modBus.addListener(ClientEventHandler::registerBindings);
 
         modBus.addListener(this::onRegisterEvent);
     }
@@ -52,21 +52,6 @@ public class DecorativeBlocks {
     public void registerFluidTypes(IForgeRegistry<FluidType> registry) {
         registry.register(DBNames.STILL_THATCH, Registration.STILL_THATCH.get().getFluidType());
         registry.register(DBNames.FLOWING_THATCH, Registration.FLOWING_THATCH.get().getFluidType());
-    }
-
-    @SubscribeEvent
-    public void buildContents(BuildCreativeModeTabContentsEvent event) {
-        // Add to ingredients tab
-        //  if (event.getTab() == DBItems.ITEM_GROUP) {
-        event.accept(DBItems.BLOCKSTATE_COPY_ITEM);
-        event.accept(DBItems.BRAZIER);
-        event.accept(DBItems.BAR_PANEL);
-        event.accept(DBItems.CHAIN);
-        event.accept(DBItems.LATTICE);
-        event.accept(DBItems.CHANDELIER);
-        event.accept(DBItems.ROCKY_DIRT);
-        event.accept((Supplier<? extends ItemLike>) DBItems.BEAM_ITEMBLOCKS);
-        //    }
     }
 
 }

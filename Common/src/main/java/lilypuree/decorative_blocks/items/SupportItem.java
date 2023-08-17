@@ -22,6 +22,7 @@ public class SupportItem extends SwitchableBlockItem<BooleanProperty, Boolean> {
 
     @Override
     public void appendHoverText(ItemStack stack, Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(Component.translatable("wiki.decorative_blocks.shift"));
         if (Screen.hasShiftDown()) {
             tooltip.add(Component.translatable("wiki.decorative_blocks.support.condition1"));
             tooltip.add(Component.translatable("wiki.decorative_blocks.support.behavior1"));

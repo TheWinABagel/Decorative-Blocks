@@ -1,4 +1,5 @@
 {
+  "replace": "false",
   "values": [
     "decorative_blocks:acacia_beam",
     "decorative_blocks:birch_beam",
@@ -6,7 +7,7 @@
     "decorative_blocks:dark_oak_beam",
     "decorative_blocks:oak_beam",
     "decorative_blocks:spruce_beam",
-    "decorative_blocks:bamboo_oak_beam",
+    "decorative_blocks:bamboo_beam",
     "decorative_blocks:cherry_beam"
   ]
 }
